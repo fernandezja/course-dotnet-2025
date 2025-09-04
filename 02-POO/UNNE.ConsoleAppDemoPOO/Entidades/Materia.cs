@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UNNE.ConsoleAppDemoPOO
+namespace UNNE.ConsoleAppDemoPOO.Entidades
 {
-    internal class Materia
+    public class Materia
     {
         //private string docente;
 
@@ -19,7 +19,7 @@ namespace UNNE.ConsoleAppDemoPOO
         //     docente = valor;
         //}
 
-        public string Docente { get; set; }
+        public Profesor Docente { get; set; }
 
 
 
@@ -40,7 +40,9 @@ namespace UNNE.ConsoleAppDemoPOO
 
 
         public string Formatear() {
+            //interpolacion
             return $"MATERIA: {Nombre}";
+            //return "MATERIA: " + Nombre;
         }
     }
 }
