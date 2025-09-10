@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11005.162 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNNE.ConsoleAppDemoPOO", "UNNE.ConsoleAppDemoPOO.csproj", "{646507A8-9838-4491-998F-49108736CA56}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNNE.ConsoleAppDemoPOO", "UNNE.ConsoleAppDemoPOO\UNNE.ConsoleAppDemoPOO.csproj", "{646507A8-9838-4491-998F-49108736CA56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNNE.ConsoleAppDemoPOO.Test", "..\UNNE.ConsoleAppDemoPOO.Test\UNNE.ConsoleAppDemoPOO.Test.csproj", "{B96D7933-4562-4C6A-9EDF-750D9ADC7F57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNNE.ConsoleAppDemoPOO.Test", "UNNE.ConsoleAppDemoPOO.Test\UNNE.ConsoleAppDemoPOO.Test.csproj", "{B96D7933-4562-4C6A-9EDF-750D9ADC7F57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
