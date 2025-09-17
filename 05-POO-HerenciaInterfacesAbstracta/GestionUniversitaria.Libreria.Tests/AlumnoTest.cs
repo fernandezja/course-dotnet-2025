@@ -43,6 +43,7 @@
             Assert.Equal(25, a1.Edad);
         }
 
+
         [Fact]
         public void DebeCrearUnAlumnoCon24Anios()
         {
@@ -51,6 +52,8 @@
             Alumno a1 = new Alumno("Juan Perez", fechaNacimiento20010917);
            
             Assert.Equal(24, a1.Edad);
+
+
         }
     }
 }

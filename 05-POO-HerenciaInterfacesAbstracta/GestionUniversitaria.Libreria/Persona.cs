@@ -1,6 +1,6 @@
 ﻿namespace GestionUniversitaria.Libreria
 {
-    public class Persona
+    public abstract class Persona
     {
         private DateOnly _fechaNacimiento2;
        
