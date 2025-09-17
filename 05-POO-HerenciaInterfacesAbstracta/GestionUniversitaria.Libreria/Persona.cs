@@ -1,6 +1,9 @@
-﻿namespace GestionUniversitaria.Libreria
+﻿using GestionUniversitaria.Libreria.Interfaces;
+
+namespace GestionUniversitaria.Libreria
 {
-    public abstract class Persona
+    public abstract class Persona: INombrable,
+                                   IRegistrableEnEntrada
     {
         private DateOnly _fechaNacimiento2;
        

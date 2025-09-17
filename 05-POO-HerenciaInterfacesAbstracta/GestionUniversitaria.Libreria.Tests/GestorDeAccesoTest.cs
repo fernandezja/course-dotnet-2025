@@ -56,6 +56,30 @@
 
 
         [Fact]
-        
+        public void DebeMarcarCuandoIngresar1Alumno1Profesor1Invitado()
+        {
+            var fechaNacimiento20000917 = new DateOnly(2000, 9, 17);
+
+            Profesor p1 = new Profesor("Juan Perez PROFESOR", fechaNacimiento20000917);
+            Alumno a1 = new Alumno("Juan Perez ALUMNO", fechaNacimiento20000917);
+
+            Invitado i1 = new Invitado("Invitado 1");
+
+
+            GestorDeAcceso gestor = new GestorDeAcceso();
+
+            gestor.RegistrarIngreso(p1);
+
+            Assert.Equal(1, gestor.IngresosCantidad());
+
+            gestor.RegistrarIngreso(a1);
+
+            Assert.Equal(2, gestor.IngresosCantidad());
+
+            gestor.RegistrarIngreso(i1);
+
+            Assert.Equal(3, gestor.IngresosCantidad());
+
+        }
     }
 }

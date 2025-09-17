@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionUniversitaria.Libreria.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,8 +26,14 @@ namespace GestionUniversitaria.Libreria
         //    Ingresos++;
         //}
 
-        public void RegistrarIngreso(Persona persona)
+        //public void RegistrarIngreso(Persona persona)
+        //{
+        //    Ingresos++;
+        //}
+
+        public void RegistrarIngreso(IRegistrableEnEntrada alguienRegistrableEnEntrada)
         {
+            //alguienRegistrableEnEntrada.No
             Ingresos++;
         }
     }
