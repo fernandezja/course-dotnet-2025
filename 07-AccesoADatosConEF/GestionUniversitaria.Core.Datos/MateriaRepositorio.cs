@@ -9,13 +9,18 @@ namespace GestionUniversitaria.Core.Datos
 {
     public class MateriaRepositorio
     {
+        private string _connectionString;
+
+        public MateriaRepositorio(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
 
         public List<Materia> ListadoFiltrado(string textoParaFiltrar) {
 
             //1 - Conexion
-            var connectionString = "Data Source=.;Initial Catalog=GestionUniversitaria;Integrated Security=true;TrustServerCertificate=True;";
-
-            var conn = new Microsoft.Data.SqlClient.SqlConnection(connectionString);
+         
+            var conn = new Microsoft.Data.SqlClient.SqlConnection(_connectionString);
 
 
             //2 - Comando

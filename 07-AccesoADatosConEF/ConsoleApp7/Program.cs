@@ -3,7 +3,9 @@ using GestionUniversitaria.Core.Datos.Entidades;
 
 Console.WriteLine("Acceso a Datos!");
 
-var repositorio = new GestionUniversitaria.Core.Datos.MateriaRepositorio();
+var connectionString = "Data Source=.;Initial Catalog=GestionUniversitaria;Integrated Security=true;TrustServerCertificate=True;";
+
+var repositorio = new GestionUniversitaria.Core.Datos.MateriaRepositorio(connectionString);
 
 var materias = repositorio.ListadoFiltrado("status");
 
