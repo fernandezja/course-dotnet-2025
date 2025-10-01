@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="ConsoleApp7/ConsoleApp7.csproj" />
+  <Project Path="GestionUniversitaria.Core.Datos/GestionUniversitaria.Core.Datos.csproj" Id="78e73d95-c34b-494b-bf06-b914bc476393" />
 </Solution>

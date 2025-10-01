@@ -11,4 +11,8 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GestionUniversitaria.Core.Datos\GestionUniversitaria.Core.Datos.csproj" />
+  </ItemGroup>
+
 </Project>

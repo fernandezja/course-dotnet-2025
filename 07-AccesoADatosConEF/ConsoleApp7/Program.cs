@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using ConsoleApp6;
+using GestionUniversitaria.Core.Datos;
 
 Console.WriteLine("Acceso a Datos!");
 
@@ -25,6 +25,7 @@ Console.WriteLine("Conexión abierta!");
 
 //3 - DataReader
 var reader = command.ExecuteReader();
+
 
 var materias = new List<Materia>();
 
