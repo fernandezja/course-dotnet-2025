@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionUniversitaria.Core.Datos
+namespace GestionUniversitaria.Core.Datos.Entidades
 {
     public class Materia
     {

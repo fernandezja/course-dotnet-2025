@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using GestionUniversitaria.Core.Datos;
+using GestionUniversitaria.Core.Datos.Entidades;
 
 Console.WriteLine("Acceso a Datos!");
 
