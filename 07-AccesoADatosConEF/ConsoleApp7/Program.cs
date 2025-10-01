@@ -5,7 +5,7 @@ Console.WriteLine("Acceso a Datos!");
 
 var repositorio = new GestionUniversitaria.Core.Datos.MateriaRepositorio();
 
-var materias = repositorio.ListadoFiltrado("status2");
+var materias = repositorio.ListadoFiltrado("status");
 
 Console.WriteLine("Listado de materias: ", materias.Count());
 

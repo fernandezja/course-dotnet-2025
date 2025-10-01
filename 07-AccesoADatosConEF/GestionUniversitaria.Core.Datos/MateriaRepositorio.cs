@@ -19,11 +19,20 @@ namespace GestionUniversitaria.Core.Datos
 
 
             //2 - Comando
-            var query = "SELECT MateriaId, Nombre FROM Materia WHERE Nombre LIKE '%status2%'";
+            var query = "SELECT MateriaId, Nombre FROM Materia WHERE Nombre LIKE '%'+@TextoParaFiltrar+'%'";
             var command = new Microsoft.Data.SqlClient.SqlCommand();
             command.Connection = conn;
             command.CommandText = query;
             command.CommandType = System.Data.CommandType.Text;
+
+            //Agregar parametros @TextoParaFiltrar
+            var parametro1 = new Microsoft.Data.SqlClient.SqlParameter();
+            parametro1.ParameterName = "@TextoParaFiltrar";
+            parametro1.SqlDbType = System.Data.SqlDbType.VarChar;
+            parametro1.Size = 100;
+            parametro1.Value = textoParaFiltrar;
+
+            command.Parameters.Add(parametro1);
 
 
 
