@@ -9,18 +9,18 @@ namespace GestionUniversitaria.Core.Datos
 {
     public class MateriaRepositorio
     {
-        private string _connectionString;
+        private ConfigActual _configActual;
 
-        public MateriaRepositorio(string connectionString)
+        public MateriaRepositorio(ConfigActual configActual)
         {
-            _connectionString = connectionString;
+            _configActual = configActual;
         }
 
         public List<Materia> ListadoFiltrado(string textoParaFiltrar) {
 
             //1 - Conexion
          
-            var conn = new Microsoft.Data.SqlClient.SqlConnection(_connectionString);
+            var conn = new Microsoft.Data.SqlClient.SqlConnection(_configActual.ConnectionString);
 
 
             //2 - Comando
