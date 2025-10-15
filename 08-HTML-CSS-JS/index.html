@@ -3,22 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Titulo v3 -----</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px;
+        }
+
+        h1, p {
+            color: green;
+        }
+
+        componenteEspecial {
+            color: blue;
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        #buscadores  {
+           background-color: #ddd;
+        }
+
+        .text-red{
+            color: red;
+        }
+
+        .encabezado {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.5em;
+            
+            background-color: fuchsia;
+            float: right;
+            position: absolute;
+            bottom: 0;
+        }
+
+    </style>
+    
 </head>
 <body>
-    <H1>Hello World! v3</h1>
-    This is some <strong>bold</strong> text.
+
+    <div class="encabezado">
+        Encabezado de la pagina
+
+    </div>
+
+    
+    <h1 id="tituloh1">Hello World! v3</h1>
+
+    <p class="text-red">This is some <strong>bold</strong> text.</p>
+   
 
     <a href="demo.html">Ir a demo</a>
 
     Crear listado de links a buscadores:
-    <ol>
-        <li><a href="https://www.google.com">Google</a></li>
+    <ol id="buscadores" >
+        <li><a class="text-red" href="https://www.google.com">Google</a></li>
         <li><a href="https://www.bing.com">Bing</a></li>
         <li><a href="https://search.yahoo.com">Yahoo</a></li>
         <li><a href="https://duckduckgo.com">DuckDuckGo</a></li>
     </ol>
 
-    <unne>Aqui esta la UNNE</unne>
+    <componenteEspecial>Aqui esta un componente especial</componenteEspecial>
+
+
+
+
+    <br />
+    <h3>Formulario de contacto</h3>
+    <form id="formContacto" method="get" action="">
+        <label for="nombre">Nombre:</label>
+        <input type="password" id="nombre" name="nombre" />
+        <br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+
+        <br />
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5"></textarea>
+        <br />
+        <input type="submit" value="Enviar" />
+    </form>
+
+
+    <script src="recursos/scripts.js"></script>
 </body>
 </html>
