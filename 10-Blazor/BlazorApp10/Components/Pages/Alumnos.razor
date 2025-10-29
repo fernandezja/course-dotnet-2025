@@ -53,19 +53,29 @@ else
 @code 
 {
 
-	List<Alumno> alumnos = null;
+    List<Alumno> alumnos = null;
 
-	protected override void OnInitialized()
-	{
-		var alumnoRepository = new AlumnoRepository();
-		alumnos = alumnoRepository.Todos();
-		
-	}
+    protected override void OnInitialized()
+    {
+        CargarGrilla();
+
+    }
 
     private void EliminarAlumno(Alumno alumno)
     {
         var alumnoRepository = new AlumnoRepository();
         alumnoRepository.Eliminar(alumno.AlumnoId);
+
+		CargarGrilla();
     }
+
+    private void CargarGrilla()
+    {
+        alumnos = null;
+		this.StateHasChanged();
+
+        var alumnoRepository = new AlumnoRepository();
+        alumnos = alumnoRepository.Todos();
+	}
 
 }
