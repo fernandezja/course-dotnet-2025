@@ -9,9 +9,16 @@
 <a class="btn btn-primary" 
    href="/alumnos/nuevo">+ Alumno</a>
 
-Listado de alumnos 
+Listado de alumnos [Total @alumnosTotal]
 
 
-@code {
+@code 
+{
+	int alumnosTotal = 0;
+
+	protected override void OnInitialized()
+	{
+		alumnosTotal = (new AlumnoRepository()).Todos().Count;
+	}
    
 }

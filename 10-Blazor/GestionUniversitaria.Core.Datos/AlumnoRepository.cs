@@ -6,8 +6,22 @@ namespace GestionUniversitaria.Core.Datos
     {
         public bool Guardar(Alumno alumno)
         {
-            // Lógica para guardar el alumno en la base de datos
+            
+            var dbContext = new GestionUniversitariaDBContext();
+            dbContext.Alumnos.Add(alumno);
+            dbContext.SaveChanges();
+
+
             return true; // Simulación de éxito
+        }
+
+
+        public List<Alumno> Todos()
+        {
+
+            var dbContext = new GestionUniversitariaDBContext();
+           
+            return dbContext.Alumnos.ToList();
         }
     }
 }
