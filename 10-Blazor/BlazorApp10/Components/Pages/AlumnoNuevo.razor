@@ -62,6 +62,8 @@ Nombre: <strong>@alumno.Nombre</strong>
 
 	private void Guardar()
 	{
-		guardado = true;
+		var alumnoRepository = new AlumnoRepository();
+
+		guardado = alumnoRepository.Guardar(alumno);
 	}
 }

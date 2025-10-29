@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="BlazorApp10/BlazorApp10.csproj" />
+  <Project Path="GestionUniversitaria.Core.Datos/GestionUniversitaria.Core.Datos.csproj" Id="7e11f51f-11e8-4685-ae92-83c3d234b99e" />
   <Project Path="GestionUniversitaria.Core.Entidades/GestionUniversitaria.Core.Entidades.csproj" Id="3e4109be-23e3-4941-bee9-35564754ceb7" />
 </Solution>
