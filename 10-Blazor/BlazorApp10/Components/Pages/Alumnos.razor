@@ -11,6 +11,18 @@
 
 Listado de alumnos [Total @alumnos.Count]
 
+@if (seElimino)
+{
+    <div class="alert alert-success">
+        Se ha eliminado el alumno correctamente.
+
+        <button class="btn btn-sm"
+                @onclick="() => CerrarMensajeEliminado()">
+            Cerrar
+        </button>
+    </div>
+}
+
 
 @if (alumnos is null)
 {
@@ -55,6 +67,8 @@ else
 
     List<Alumno> alumnos = null;
 
+    bool seElimino = false;
+
     protected override void OnInitialized()
     {
         CargarGrilla();
@@ -66,16 +80,23 @@ else
         var alumnoRepository = new AlumnoRepository();
         alumnoRepository.Eliminar(alumno.AlumnoId);
 
-		CargarGrilla();
+        seElimino = true;
+
+        CargarGrilla();
     }
 
     private void CargarGrilla()
     {
         alumnos = null;
-		this.StateHasChanged();
+        this.StateHasChanged();
 
         var alumnoRepository = new AlumnoRepository();
         alumnos = alumnoRepository.Todos();
-	}
+    }
+
+    private void CerrarMensajeEliminado()
+    {
+        seElimino = false;
+    }
 
 }
