@@ -23,5 +23,18 @@ namespace GestionUniversitaria.Core.Datos
            
             return dbContext.Alumnos.ToList();
         }
+
+        public void Eliminar(int alumnoId)
+        {
+            var dbContext = new GestionUniversitariaDBContext();
+
+            var alumno = dbContext.Alumnos.Find(alumnoId);
+
+            if (alumno is not null)
+            {
+                dbContext.Alumnos.Remove(alumno);
+                dbContext.SaveChanges();
+            }
+        }
     }
 }

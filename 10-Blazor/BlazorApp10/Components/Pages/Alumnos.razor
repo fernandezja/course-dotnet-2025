@@ -23,6 +23,7 @@ else
             <tr>
                 <th>Alumno</th>
                 <th>Email</th>
+                <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
@@ -34,6 +35,14 @@ else
                         <span class="text-muted">AlumnoId = @a.AlumnoId</span>
                     </td>
                     <td>@a.Email</td>
+                    <td>
+
+                        <button class="btn btn-sm btn-danger"
+                                title="Eliminar a @a.Nombre"
+                                @onclick="() => EliminarAlumno(a)">
+                            🗑️🗑
+                        </button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -52,5 +61,11 @@ else
 		alumnos = alumnoRepository.Todos();
 		
 	}
-   
+
+    private void EliminarAlumno(Alumno alumno)
+    {
+        var alumnoRepository = new AlumnoRepository();
+        alumnoRepository.Eliminar(alumno.AlumnoId);
+    }
+
 }
