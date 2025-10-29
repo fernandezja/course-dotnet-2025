@@ -9,16 +9,48 @@
 <a class="btn btn-primary" 
    href="/alumnos/nuevo">+ Alumno</a>
 
-Listado de alumnos [Total @alumnosTotal]
+Listado de alumnos [Total @alumnos.Count]
+
+
+@if (alumnos is null)
+{
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Alumno</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var a in alumnos)
+            {
+                <tr>
+                    <td>@a.Nombre <strong>@a.Apellido</strong>
+                        <br />
+                        <span class="text-muted">AlumnoId = @a.AlumnoId</span>
+                    </td>
+                    <td>@a.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
 
 @code 
 {
-	int alumnosTotal = 0;
+
+	List<Alumno> alumnos = null;
 
 	protected override void OnInitialized()
 	{
-		alumnosTotal = (new AlumnoRepository()).Todos().Count;
+		var alumnoRepository = new AlumnoRepository();
+		alumnos = alumnoRepository.Todos();
+		
 	}
    
 }
