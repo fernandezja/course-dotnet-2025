@@ -1,0 +1,71 @@
+﻿@page "/alumnos/nuevo"
+@page "/alumnos/agregar"
+
+
+<PageTitle>Alta de nuevo alumno</PageTitle>
+
+<h1>Alta de nuevo alumno</h1>
+@* 
+Nombre: <strong>@alumno.Nombre</strong>
+
+<br />
+
+<input type="text" 
+	   @bind="@alumno.Nombre" />
+<br />
+<input type="text" @bind="@alumno.Nombre" @bind:after="() => { }" />
+<br /> *@
+
+
+<div class="mb-3">
+	<label for="nombre" class="form-label">Nombre</label>
+	<input type="text" class="form-control" id="nombre" 
+				 placeholder="Ingrese el nombre..."
+				 @bind="@alumno.Nombre">
+</div>
+
+
+
+<div class="mb-3">
+	<label for="apellido" class="form-label">Apellido</label>
+	<input type="text" class="form-control" id="apellido"
+		   placeholder="Ingrese el apellido..."
+		   @bind="@alumno.Apellido">
+</div>
+
+
+<div class="mb-3">
+	<label for="email" class="form-label">Email</label>
+	<input type="email" class="form-control" id="email"
+		   placeholder="Ingrese el email..."
+		   @bind="@alumno.Email">
+</div>
+
+
+<button class="btn btn-primary" 
+		@onclick="Guardar">Guardar</button>
+
+@if (guardado)
+{
+	<div class="alert alert-success mt-3" role="alert">
+		Alumno guardado correctamente.
+	</div>
+
+	<a href="/alumnos">Ir al listado de alumnos</a>
+}
+
+
+
+
+
+@code {
+	Alumno alumno = new Alumno();
+	bool guardado = false;
+
+	private void Guardar()
+	{
+		var alumnoRepository = new AlumnoRepository();
+
+		guardado = alumnoRepository.Guardar(alumno);
+	}
+}

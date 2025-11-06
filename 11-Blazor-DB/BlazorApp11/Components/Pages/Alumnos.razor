@@ -1,0 +1,102 @@
+﻿@page "/alumnos"
+
+<PageTitle>Alumnos</PageTitle>
+
+<h1>Alumnos</h1>
+
+<p>...</p>
+
+<a class="btn btn-primary" 
+   href="/alumnos/nuevo">+ Alumno</a>
+
+Listado de alumnos [Total @alumnos.Count]
+
+@if (seElimino)
+{
+    <div class="alert alert-success">
+        Se ha eliminado el alumno correctamente.
+
+        <button class="btn btn-sm"
+                @onclick="() => CerrarMensajeEliminado()">
+            Cerrar
+        </button>
+    </div>
+}
+
+
+@if (alumnos is null)
+{
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Alumno</th>
+                <th>Email</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var a in alumnos)
+            {
+                <tr>
+                    <td>@a.Nombre <strong>@a.Apellido</strong>
+                        <br />
+                        <span class="text-muted">AlumnoId = @a.AlumnoId</span>
+                    </td>
+                    <td>@a.Email</td>
+                    <td>
+
+                        <button class="btn btn-sm btn-danger"
+                                title="Eliminar a @a.Nombre"
+                                @onclick="() => EliminarAlumno(a)">
+                            🗑️🗑
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code 
+{
+
+    List<Alumno> alumnos = null;
+
+    bool seElimino = false;
+
+    protected override void OnInitialized()
+    {
+        CargarGrilla();
+
+    }
+
+    private void EliminarAlumno(Alumno alumno)
+    {
+        var alumnoRepository = new AlumnoRepository();
+        alumnoRepository.Eliminar(alumno.AlumnoId);
+
+        seElimino = true;
+
+        CargarGrilla();
+    }
+
+    private void CargarGrilla()
+    {
+        alumnos = null;
+        this.StateHasChanged();
+
+        var alumnoRepository = new AlumnoRepository();
+        alumnos = alumnoRepository.Todos();
+    }
+
+    private void CerrarMensajeEliminado()
+    {
+        seElimino = false;
+    }
+
+}
