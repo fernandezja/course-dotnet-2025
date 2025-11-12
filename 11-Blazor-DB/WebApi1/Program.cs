@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Http.HttpResults;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<AlumnoRepository>();
+//builder.Services.AddTransient<AlumnoRepository>();
+//builder.Services.AddSingleton<AlumnoRepository>()
 
 var app = builder.Build();
 
@@ -32,16 +35,31 @@ app.MapGet("/weatherforecast", () =>
 
 
 
-app.MapGet("/api/alumno", () =>
+app.MapGet("/api/alumno/{alumnoId}", (int alumnoId,
+                                      AlumnoRepository alumnoRepository,
+                                        HttpContext context) =>
 {
-    var alumnoRepository = new AlumnoRepository();
+    var alumno = alumnoRepository.Obtener(alumnoId);
+
+    if (alumno is null)
+    {
+        return Results.NotFound();
+    }
+
+    return Results.Ok(alumno);
+});
+
+app.MapGet("/api/alumno", (AlumnoRepository alumnoRepository) =>
+{
     var alumnos = alumnoRepository.Todos();
 
     return alumnos;
 });
 
 
-app.MapPost("/api/alumno", (Alumno alumno, HttpContext context) =>
+app.MapPost("/api/alumno", (Alumno alumno,
+                            AlumnoRepository alumnoRepository,
+                            HttpContext context) =>
 {
     //Validar alumno
     if (alumno is null)
@@ -49,12 +67,22 @@ app.MapPost("/api/alumno", (Alumno alumno, HttpContext context) =>
         return Results.BadRequest("Alumno no puede ser nulo");
     }
 
-    var alumnoRepository = new AlumnoRepository();
+    //var alumnoRepository = new AlumnoRepository();
     var seGuardo = alumnoRepository.Guardar(alumno);
 
     return Results.Ok();
 });
 
+app.MapGet("/api/alumno/demo", (AlumnoRepository alumnoRepository1, 
+                                AlumnoRepository alumnoRepository2) =>
+{
+    //var alumnoRepository1 = new AlumnoRepository();
+    //var alumnoRepository2 = new AlumnoRepository();
+
+    var alumnos = alumnoRepository1.Todos();
+
+    return alumnos;
+});
 
 
 
