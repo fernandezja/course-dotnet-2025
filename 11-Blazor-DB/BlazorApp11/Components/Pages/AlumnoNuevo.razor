@@ -1,5 +1,6 @@
 ﻿@page "/alumnos/nuevo"
 @page "/alumnos/agregar"
+@inject AlumnoRepository alumnoRepository
 
 
 <PageTitle>Alta de nuevo alumno</PageTitle>
@@ -64,7 +65,7 @@ Nombre: <strong>@alumno.Nombre</strong>
 
 	private void Guardar()
 	{
-		var alumnoRepository = new AlumnoRepository();
+		//var alumnoRepository = new AlumnoRepository();
 
 		guardado = alumnoRepository.Guardar(alumno);
 	}

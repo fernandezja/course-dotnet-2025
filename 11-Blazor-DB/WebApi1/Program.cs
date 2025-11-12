@@ -4,7 +4,14 @@ using Microsoft.AspNetCore.Http.HttpResults;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var configActual = new Config
+{
+    Titulo = "Gestion Universitaria API",
+    ConnectionString = "InMemoryDb_GestionUniversitaria"
+};
+
 // Add services to the container.
+builder.Services.AddSingleton<Config>(configActual);
 builder.Services.AddScoped<AlumnoRepository>();
 //builder.Services.AddTransient<AlumnoRepository>();
 //builder.Services.AddSingleton<AlumnoRepository>()

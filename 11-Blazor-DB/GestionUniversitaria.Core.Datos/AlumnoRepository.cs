@@ -4,6 +4,13 @@ namespace GestionUniversitaria.Core.Datos
 {
     public class AlumnoRepository
     {
+        public Config ConfigActual { get; set; }
+
+        public AlumnoRepository(Config configActual)
+        {
+            ConfigActual = configActual;
+        }
+
         public int UniqueId { 
             get { 
                return this.GetHashCode();
@@ -18,7 +25,7 @@ namespace GestionUniversitaria.Core.Datos
         {
             if (_dBContext is null)
             {
-                _dBContext = new GestionUniversitariaDBContext();
+                _dBContext = new GestionUniversitariaDBContext(ConfigActual);
             }
 
             return _dBContext;
